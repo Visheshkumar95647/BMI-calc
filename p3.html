@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <form>
+        <h1>BMI CALCULATOR</h1>
+        <div id="height"><input type="number" placeholder="enter your height"></div>
+        <br><br>
+        <div id="weight"><input type="number" placeholder="enter your weight"></div>
+        
+        <br><br>
+        <div class="button">
+            <button>Calculate</button>
+        </div>
+        <br>
+        <div class="result"></div>
+        <br>
+        <div class="ins"></div>
+    </form>
+
+    <script>
+        const f = document.querySelector('form');
+        f.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const height = parseInt(document.querySelector('#height input').value);
+            const weight = parseInt(document.querySelector('#weight input').value);
+            const ans = document.querySelector('.result');
+            const ins=document.querySelector('.ins')
+            const bmi = weight / ((height * height) / 10000);
+            ans.innerHTML = `YOUR BMI: ${bmi}`;
+            if(bmi<18.6){
+                ins.innerHTML="Under Weight"
+            }else if(bmi>24.9){
+                ins.innerHTML='Over Weight'
+            }else{
+                ins.innerHTML='Normal Weight'
+            }
+        });
+    </script>
+</body>
+</html>
